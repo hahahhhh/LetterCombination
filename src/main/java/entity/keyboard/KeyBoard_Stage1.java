@@ -1,23 +1,25 @@
-package entity;
+package entity.keyboard;
+
+import entity.key.Key;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KeyBoard {
-    private final List<String> result = new ArrayList<String>();
+public class KeyBoard_Stage1 {
+    protected final List<String> result = new ArrayList<String>();
 
-    public KeyBoard dial(int... is) {
+    public KeyBoard_Stage1 dial(int... is) {
         StringBuilder sb = new StringBuilder();
         for (int i : is) {
             if (i == 1 || i == 0) continue;
-            if (i > 99) {
+            if (i > 9) {
                 result.clear();
-                result.add("Your Input is out of valid range");
+                result.add("Your Input is out of valid range,we only accept 0 to 9 as parameters");
                 return this;
             }
             sb.append(i);
         }
-        backtrack("", sb.toString());
+        combine("", sb.toString());
         return this;
     }
 
@@ -40,7 +42,7 @@ public class KeyBoard {
         return key.toString();
     }
 
-    private void backtrack(String sGroup, String nums) {
+    protected void combine(String sGroup, String nums) {
         if (nums.length() == 0) {
             result.add(sGroup);
         } else {
@@ -48,7 +50,7 @@ public class KeyBoard {
             String letters = getString(num);
             for (int i = 0; i < letters.length(); i++) {
                 String letter = getString(num).substring(i, i + 1);
-                backtrack(sGroup + letter, nums.substring(1));
+                combine(sGroup + letter, nums.substring(1));
             }
         }
     }

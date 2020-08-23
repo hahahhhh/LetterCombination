@@ -1,4 +1,4 @@
-package entity;
+package entity.key;
 
 public class
 Key {
