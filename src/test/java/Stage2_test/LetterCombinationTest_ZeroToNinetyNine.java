@@ -42,6 +42,21 @@ public class LetterCombinationTest_ZeroToNinetyNine {
                 " nww nwx nwy nws nxw nxx nxy nxs nyw nyx nyy nys nsw nsx nsy nss" +
                 " oww owx owy ows oxw oxx oxy oxs oyw oyx oyy oys osw osx osy oss";
         Assert.assertEquals(expectedResult3, keyBoard.dial(input4).output());
+        keyBoard.clear();
+
+        int[] input5 = {3, 7, 8};
+        String expectedResult4 = "dpt dpu dpv dqt dqu dqv drt dru drv dst dsu dsv " +
+                "ept epu epv eqt equ eqv ert eru erv est esu esv " +
+                "fpt fpu fpv fqt fqu fqv frt fru frv fst fsu fsv";
+        Assert.assertEquals(expectedResult4, keyBoard.dial(input5).output());
+        keyBoard.clear();
+
+        int[] input6={4};
+        String expectedResult5="g h i";
+        Assert.assertEquals(expectedResult5, keyBoard.dial(input6).output());
+        keyBoard.clear();
+
+
 
     }
 
